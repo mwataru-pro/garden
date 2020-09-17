@@ -21,4 +21,8 @@ class Customer < ApplicationRecord
   validates :postal_code, length: {minimum: 7, maximum: 7}
   validates :address, length: {minimum: 3, maximum:50}
   validates :phone_number, length: {minimum: 3, maximum: 15}
+
+  def full_name
+    self.last_name + " " + self.first_name
+  end
 end
