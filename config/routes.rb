@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # rootパス
-  root 'public/homes#top'
+  root 'homes#top'
 
   # 管理者用サイトのルーティング
   devise_for :admins, controllers: {
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get '/admins' => 'admins#top'
+    get 'homes/top' => 'homes#top', as:'top'
     resources :items
     resources :genres
     resources :customers
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   }
 
   namespace :public do
+    get '/top' => 'homes#top', as:'customer_top'
     get '/about' => 'homes#about'
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all' #カート内アイテムの全削除用
     resources :items, only:[:index,:show,:new] do
