@@ -73,3 +73,5 @@ gem 'kaminari'
 gem 'nokogiri'
 
 gem 'pry-byebug'
+
+gem 'jp_prefecture'
