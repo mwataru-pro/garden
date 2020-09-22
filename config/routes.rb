@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # rootパス
-  root 'homes#top'
+  root 'public/homes#top'
 
   # 管理者用サイトのルーティング
   devise_for :admins, controllers: {
