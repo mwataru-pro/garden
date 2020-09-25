@@ -25,4 +25,16 @@ class Customer < ApplicationRecord
   def full_name
     self.last_name + " " + self.first_name
   end
+
+  # 住所検索用 その他記述はhtmlとjavascripts/public/members.coffeeに記載
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
 end
