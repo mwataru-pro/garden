@@ -1,2 +1,30 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<div class="col-2"></div>
+<div class="col-8">
+  <h2>新商品登録</h2>
+  <div class="col-4">
+    <%= form_for(@item, url:admin_items_path) do |f| %>
+      <div>
+        <%= attachment_image_tag @item, :image, class: "img-square", fallback: "", size: "300x300" %>
+      </div><br>
+      <%= f.attachment_field :image, placeholder: "商品画像" %>
+  </div><br>
+  <div class="col-8">
+    <div class="new-field">
+      <h4><%= f.label :商品名 %>
+      <%= f.text_field :item_name, autofocus: true, autocomplete: "item_name" ,class: "col-8"%></h4>
+    </div>
+    <div class="new-field">
+      <h4><%= f.label :商品説明 %>
+      <%= f.text_field :explanation, autofocus: true, autocomplete: "explanation" ,class: "col-8"%></h4>
+    </div>
+    <div class="new-field">
+      <h4><%= f.label :ジャンル %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
+    </div>
+    <div class="text-right">
+      <%= f.submit "登録する", class: "btn btn-success" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="col-2"></div> 
