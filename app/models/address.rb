@@ -3,7 +3,7 @@ class Address < ApplicationRecord
   belongs_to :customer
 
   # バリデーション
-  validates :post_code, presence: true, length: {minimum: 2, maximum: 7}
+  validates :postal_code, presence: true, length: {minimum: 2, maximum: 7}
   validates :shipping_address, presence: true, length: {minimum: 2, maximum: 50}
   validates :name, presence: true, length: {minimum: 2, maximum: 35}
 

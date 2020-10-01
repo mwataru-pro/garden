@@ -121,16 +121,16 @@ Item.create!(
 Address.create!(
   [
     {
-     name: "山田 菊",
+     name: "山田 太朗1",
      customer_id: 1,
      shipping_address: "東京都新宿区東新宿5丁目",
-     postal_code: 184587,
+     postal_code: "1234567",
 },
 {
-     name: "山田 百合",
+     name: "山田 太朗2",
      customer_id: 2,
      shipping_address: "東京都新宿区東新宿9丁目",
-     postal_code: 959597,
+     postal_code: "1234567",
 }
 ]
 )
@@ -144,9 +144,9 @@ Order.create!(
        postage: 800,
        payment_method: 0,
        address: "神奈川県横浜市中区山手町37",
-       postal_code: 2318651,
+       postal_code: "2318651",
        name: "東京都新宿区東新宿1丁目",
-       total_fee: 1245677895,
+       total_fee: 33880,
        order_status: 0,
   },
 ]
@@ -160,42 +160,42 @@ OrderItem.create!(
     order_id: 1,
     item_id: 1,
     order_price: 33000,
-    quontity: 1,
+    quantity: 1,
     making_status: 0,
   },
   {
     order_id: 1,
     item_id: 2,
     order_price: 6600,
-    quontity: 2,
+    quantity: 2,
     making_status: 0,
   },
   {
     order_id: 1,
     item_id: 5,
     order_price: 11000,
-    number_of_items: 1,
+    quantity: 1,
     making_status: 0,
   },
   {
     order_id: 2,
     item_id: 1,
     order_price: 33000,
-    quontity: 1,
+    quantity: 1,
     making_status: 0,
   },
   {
     order_id: 2,
     item_id: 2,
     order_price: 6600,
-    quontity: 2,
+    quantity: 2,
     making_status: 0,
   },
   {
     order_id: 2,
     item_id: 5,
     order_price: 11000,
-    number_of_items: 1,
+    quantity: 1,
     making_status: 0,
   }
 ]
