@@ -4,7 +4,7 @@
   <div class="col-4">
     <%= form_for(@item, url:admin_items_path) do |f| %>
       <div>
-        <%= attachment_image_tag @item, :image, class: "img-square", fallback: "", size: "300x300" %>
+        <%= attachment_image_tag @item, :image, class: "img-square", fallback: "", size: "300x300", fallback: "no-image2.png" %>
       </div><br>
       <%= f.attachment_field :image, placeholder: "商品画像" %>
   </div><br>
