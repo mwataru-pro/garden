@@ -10,16 +10,33 @@
   </div><br>
   <div class="col-8">
     <div class="new-field">
-      <h4><%= f.label :商品名 %>
-      <%= f.text_field :item_name, autofocus: true, autocomplete: "item_name" ,class: "col-8"%></h4>
+      <h5>
+        <%= f.label :商品名 %>
+        <%= f.text_field :item_name, autofocus: true, autocomplete: "item_name" ,class: "col-8"%>
+      </h5>
     </div>
     <div class="new-field">
-      <h4><%= f.label :商品説明 %>
-      <%= f.text_field :explanation, autofocus: true, autocomplete: "explanation" ,class: "col-8"%></h4>
+      <h5>
+        <%= f.label :商品説明 %>
+        <%= f.text_area :explanation, autofocus: true, autocomplete: "explanation" ,class: "col-8"%>
+      </h5>
     </div>
     <div class="new-field">
-      <h4><%= f.label :ジャンル %>
-      <%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
+      <h5>
+        <%= f.label :ジャンル %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name %></h4>
+    </div>
+    <div class="new-field">
+      <h5>
+        <%= f.label :税別価格 %>
+        <%= f.text_field :price, autofocus: true, autocomplete: "price", class: "col-8" %>
+      </h5>
+    </div>
+    <div class="new-field">
+      <h5>
+        <%= f.label :販売ステータス %>
+        <%= f.select :sale_status, ["販売中", "販売停止"], class: "btn btn-primary" %>
+      </h5>
     </div>
     <div class="text-right">
       <%= f.submit "登録する", class: "btn btn-success" %>
