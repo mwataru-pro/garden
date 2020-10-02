@@ -145,7 +145,7 @@ Order.create!(
     payment_method: 0,
     address: "神奈川県横浜市中区山手町37",
     postal_code: "2318651",
-    name: "東京都新宿区東新宿1丁目",
+    name: "山田花子",
     total_fee: 33880,
     order_status: 0,
   },
