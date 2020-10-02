@@ -3,7 +3,7 @@ class Genre < ApplicationRecord
   has_many :items
 
   # enum設定
-  enum valida_invalid_status: {有効: 0, 無効: 1}
+  enum valid_invalid_status: {有効: 0, 無効: 1}
 
   # バリデーション
   validates :name, presence: true
