@@ -1,0 +1,15 @@
+
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th class="active text-center"><h5 class="genre_said">ジャンル検索</h5></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% genres.each do |genre| %>
+      <tr>
+        <td style="text-align: center;"><%= link_to genre.name, search_public_items_path(genre.id), method: :get %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

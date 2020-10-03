@@ -1,2 +1,24 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="col-2 offset-1">
+  <!-- ジャンル検索（パーシャル） -->
+  <%= render "public/genres/sidebar", genres: @genres %>
+</div>
+<div class="col-8 col-ofset-1">
+  <div class="row item-box">
+    <div id="item-pic">
+      <%= attachment_image_tag @item, :image, size: "300x300", fallback: "no-image2.png" %>
+    </div>
+    <div id="item-explanation">
+      <h3 style="color: white;"><%= @item.item_name %></h3><br>
+      <p><%= @item.explanation %></p>
+      <p class="price">¥<%= (@item.price * 1.1).floor %><span style="font-size:12px;">（税込）</span></p>
+    </div>
+  </div>
+  <div class="col-7 offset-5">
+    <strong class="error"><%= notice %></strong>
+    <%= form_for @cart_item, url: public_cart_items_path(@cart_item) do |f| %>
+      <%= f.hidden_field :item_id  , :value => @item.id%>
+      <%= f.number_field :quantity , placeholder: "個数選択", min: 1, max: 20, size: "100" %>
+      <%= f.submit "カートに入れる" ,class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
