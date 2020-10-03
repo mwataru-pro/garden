@@ -1,2 +1,60 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="col-2"></div>
+<div class="col-8">
+  <br>
+  <br>
+  <h2><%= @customer.full_name %>さんの会員情報編集</h2>
+  <br>
+  <br>
+  <div>
+  <%= form_for @customer, url: admin_customer_path do |f| %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>会員ID</th>
+        <td><%= @customer.id %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :氏名 %></th>
+        <td>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :フリガナ %></th>
+        <td>
+          <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+          <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :郵便番号 %></th>
+        <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :住所 %></th>
+        <td><%= f.text_field :address, autofocus: true, autocomplete: "address" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :電話番号 %></th>
+        <td><%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :メールアドレス %></th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+      <tr>
+        <th>会員ステータス</th>
+        <td>
+          <%= f.radio_button :whithdrawal_status, "有効" ,checked: "checked"%> 有効会員　
+          <%= f.radio_button :whithdrawal_status, "無効" %> 退会済み
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit "変更を保存する", class:"btn btn-primary" %>
+  <% end %>
+  </div>
+  <br>
+</div>
+<div class="col-2"></div>

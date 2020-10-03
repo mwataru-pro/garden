@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
   has_many :orders
 
   # enumの設定
-  enum withdrawal_status: {有効: 0,無効: 1}
+  enum whithdrawal_status: {有効: 0,無効: 1}
 
   # バリデーション
   validates :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :phone_number, presence: true
@@ -23,7 +23,11 @@ class Customer < ApplicationRecord
   validates :phone_number, length: {minimum: 3, maximum: 15}
 
   def full_name
-    self.last_name + " " + self.first_name
+    self.first_name + "　" + self.last_name
+  end
+
+  def full_name_kana
+    self.first_name_kana + "　" + self.last_name_kana
   end
 
   # 住所検索用 その他記述はhtmlとjavascripts/public/members.coffeeに記載
