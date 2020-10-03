@@ -20,14 +20,14 @@
 
   <!-- メニューバー -->
   <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto w-75 nav-justified">
+    <ul class="navbar-nav w-75 nav-justified">
       <!-- 会員でログインしている時 -->
       <% if customer_signed_in? %>
-        <li class="nav-item">ようこそ、<%= current_customer.full_name %>さん！</li>
         <li class="nav-item"><%= link_to public_customers_path, class: 'nav-link' do %>マイページ<% end %></li>
         <li class="nav-item"><%= link_to public_items_path, class: 'nav-link' do %>商品一覧<% end %></li>
         <li class="nav-item"><%= link_to public_cart_items_path, class: 'nav-link' do %>カート<% end %></li>
         <li class="nav-item"><%= link_to destroy_customer_session_path, class: 'nav-link', method: :delete do %>ログアウト<% end %></li>
+        <li class="nav-item" style="color: white; width: 100px; padding: 8px;">ようこそ<%= current_customer.full_name %>さん</li>
       <!-- 管理者でログインしている時 -->
       <% elsif admin_signed_in? %>
         <li class="nav-item"><%= link_to ' 商品一覧', admin_items_path, class: 'nav-link' %></li>

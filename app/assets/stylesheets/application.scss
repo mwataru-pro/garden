@@ -45,12 +45,15 @@ footer {
   height: 75px;
   position: absolute;
   bottom: 0;
+  background-color: green;
+  margin-top: 20px;
 }
 
 .footer {
   line-height: 75px;
   text-align: center;
   color: white;
+  margin-bottom: 0;
 }
 
 .navbar-toggler {
@@ -68,6 +71,10 @@ input[type="password"] {
   width: 300px;
 }
 
+input[type="number"] {
+  width: 85px
+}
+
 /*input[type="text"] {
   width: 250px;
 }*/
@@ -79,4 +86,19 @@ input[type="password"] {
 
 .logo h1 {
   color: gold;
+}
+
+.item-box {
+  margin-top: 50px;
+}
+
+#item-explanation {
+  width:400px;
+  height:300px;
+  float:left;
+}
+
+#item-pic {
+  float: left;
+  margin: 15px 50px;
 }
