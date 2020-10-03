@@ -1,14 +1,14 @@
 <header class="container-fluid" style="background-color: green; margin-bottom: 20px;">
  <nav class="navbar navbar-expand-lg">
   <!-- ロゴ完成時文字列と画像を入れ替え予定 -->
-  <div>
+  <div class="logo">
     <% if admin_signed_in? %>
       <%= link_to admin_top_path do %>
-        <h1 style="color: gold">Garden🌱</h1>
+        <h1>Garden🌱</h1>
       <% end %>
     <% else %>
       <%= link_to public_customer_top_path do %>
-        <h1 style="color: gold">Garden🌱</h1>
+        <h1>Garden🌱</h1>
       <% end %>
     <% end %>
   </div>
@@ -39,7 +39,6 @@
       <!-- ログインしていない時 -->
       <% else %>
         <li class="nav-item"><%= link_to public_items_path, class: 'nav-link' do %>商品一覧<% end %></li>
-        <li class="nav-item"><%= link_to public_about_path, class: 'nav-link' do %>About<% end %></li>
         <li class="nav-item"><%= link_to new_customer_registration_path, class: 'nav-link' do %>新規登録<% end %></li>
         <li class="nav-item"><%= link_to new_customer_session_path, class: 'nav-link' do %>ログイン<% end %></li>
       <% end %>
