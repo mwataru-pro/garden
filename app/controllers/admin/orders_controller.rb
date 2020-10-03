@@ -4,7 +4,7 @@ class Admin::OrdersController < ApplicationController
     @path = Rails.application.routes.recognize_path(request.referer) # 遷移元のcontrollerやaction名を取得する
     if @path[:controller] == "admin/customers" && @path[:action] == "show" # 遷移元がcustomersコントローラでshowアクションだったら
       @orders = Order.where(customer_id: params[:format]).page(params[:page]).per(5) # 該当会員のOrderデータのみを取得
-    elsif @path[:controller] == "admins/homes" # 遷移元がhomesコントローラからだったら
+    elsif @path[:controller] == "admins/homes/top" # 遷移元がhomesコントローラからだったら
       @orders = Order.where(created_at: Time.zone.today.all_day).page(params[:page]).per(5) #本日の注文されたもののみ取得
     else
       @orders = Order.page(params[:page]).per(5) #それ以外のアクセス。ヘッダーから。

@@ -1,2 +1,19 @@
-<h1>Public::Orders#thanks</h1>
-<p>Find me in app/views/public/orders/thanks.html.erb</p>
+<div class="col-8 offset-2">
+  <div class="thanks-image" style="text-align: center;">
+      <%= link_to public_customer_top_path do %>
+        <%= image_tag 'thanks.png' %>
+      <% end %>
+    <h5>
+      ご購入いただきありがとうございました。<br>
+      このページは10秒後に自動でトップページへ移動します。<br>
+      ※もし自動で移動しない場合は画像をクリックしてください。
+    </h5>
+    <!-- 購入後、この画面表示から5秒後にトップページへ自動遷移 -->
+    <script language="JavaScript">
+      setTimeout(function(){
+        location.href="/";
+      },10000);
+    </script>
+    <!--  -->
+  </div>
+</div>

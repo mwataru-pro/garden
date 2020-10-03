@@ -1,2 +1,68 @@
-<h1>Public::Orders#confirm</h1>
-<p>Find me in app/views/public/orders/confirm.html.erb</p>
+<div class="col-8 offset-2">
+  <h2>注文情報確認</h2><br>
+  <div class="row">
+    <div class="col-8">
+  <%= form_for  @order,url: {action: 'create'} do |f| %>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+          <% @total += (cart_item.item.price * 1.1 * cart_item.quantity).floor %>
+          <tr>
+            <td><%= cart_item.item.item_name %></td>
+            <td><%= (cart_item.item.price * 1.1).floor %></td>
+            <td><%= cart_item.quantity %></td>
+            <td><%= (cart_item.item.price * 1.1 * cart_item.quantity).floor %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <table class="table table-bordered">
+        <tr>
+          <th>送料(税込)</th>
+          <th>¥880</th>
+        </tr>
+        <tbody>
+          <tr>
+            <th>商品合計</th>
+            <td>¥<%= @total%></td>
+          </tr>
+          <tr>
+            <th>請求額</th>
+            <td>¥<%= @total + 880 %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+  <p><strong>支払方法 </strong><%= @order.payment_method %></p>
+  <br>
+  <p><strong>お届け先 </strong><%= @order.postal_code %> <%= @order.address %> <%= @order.name %></p>
+  <br>
+  <!-- 保持した情報の受け渡し -->
+    <%= f.hidden_field :payment_method ,:value => @order.payment_method %>
+    <%= f.hidden_field :postage ,:value => 880 %>
+    <%= f.hidden_field :address,:value => @order.address %>
+    <%= f.hidden_field :postal_code,:value => @order.postal_code %>
+    <%= f.hidden_field :name,:value => @order.name %>
+    <%= f.hidden_field :total_fee ,:value => @total %>
+    <div class="text-center">
+      <%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
+    </div>
+  <% end %>
+  <!-- 入力画面に戻る用 -->
+  <%= form_for @order, url: new_public_order_path, method: :get do |f| %>
+    <%= f.hidden_field :order, :value => @order %>
+    <%= f.submit '入力画面へ戻る' ,class: "btn btn-primary" %>
+  <% end %>
+</div>
