@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   # アソシエーション
   belongs_to :customer
-  has_many :oreder_items
+  has_many :order_items
 
   # enumの設定
   enum payment_method: {銀行振込: 0, クレジットカード: 1}
