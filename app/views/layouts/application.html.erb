@@ -14,12 +14,14 @@
   </head>
 
   <body>
+  <div id="wrapper">
     <%= render 'layouts/header' %>
-    <div class="container-fluid">
+    <div class="container-fluid contents">
       <div class="row">
         <%= yield %>
       </div>
     </div>
     <%= render 'layouts/footer' %>
+  </div>
   </body>
 </html>
