@@ -17,7 +17,7 @@
 @import "bootstrap";
 
 *{
-  margin:0;
+  margin: 0;
   padding: 0;
 }
 
@@ -102,3 +102,26 @@ input[type="number"] {
   float: left;
   margin: 15px 50px;
 }
+
+.recommendation-items {
+  float: left;
+  margin-right: 50px;
+}
+
+#multiple-items {
+  float: left;
+  margin-left: 50px;
+}
+
+.user_edit {
+  margin-bottom: 30px;
+}
+
+.withdrawal-contents {
+  margin-top: 150px;
+}
+
+.addresses-table {
+  margin-top: 30px;
+}
+

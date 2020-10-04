@@ -1,15 +1,33 @@
-<div class="col-3"></div>
-<div class="col-6">
-  <div id="welcome" style="background-color: lightgreen; text-align: center; padding: 20px;">
+<div class="col-2"></div>
+<div class="col-8">
+  <div id="welcome" class="animate__animated animate__zoomInDown" style="background-color: lightgreen; text-align: center; padding: 20px;">
     <h1><span id="back-color" style="background-color: seagreen; color: white; font-size: 50px;" >🌴Welcome Garden🌴</span></h1>
     <br>
     <blockquote>
-      <p>text text text text text text text text text text text text text text text text text text text text text text text text</p>
+      <p>観葉植物専門店 Gardenです。</p>
+      <p>初心者の方でも育てやすい植物をたくさん取り揃えております。</p>
+      <p>どんな植物を育てたらいいか、どんな場所で育てたらいいかなど、</p>
+      <p>観葉植物の育て方などでお困りの方は<a href="http://plants-and-network.work/">こちら</a>のサイトをご覧ください。</p>
     </blockquote>
-    <h1 class="welcome-text" style="color: seagreen;">text text text text</h1>
     <br>
-    <h1 class="welcome-text" style="color: seagreen;">text text text text</h1>
+    <h3 class="welcome-text" style="color: seagreen;"><strong>観葉植物と一緒に彩りある素敵な生活を！</strong></h3>
   </div>
+  <br>
+  <br>
+  <div class="animate__animated animate__lightSpeedInLeft text-center clearfix">
+    <h4>おすすめ商品</h4>
+    <div id="multiple-items">
+      <% @items.each do |item| %>
+      <div class="recommendation-items">
+        <%= link_to public_item_path(item.id) do %>
+          <%= attachment_image_tag item, :image, size: "150x150",  fallback: "no-image2.png"%><br>
+        <% end %>
+        <p><%= item.item_name %></p>
+        <p>¥<%= (item.price * 1.1).floor %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <p style="text-align: center;"><%= link_to "もっと見る＞", public_items_path %></p>
 </div>
-<div class="col-3"></div>
-
+<div class="col-2"></div>

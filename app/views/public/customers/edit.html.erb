@@ -1,2 +1,75 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="col-8 offset-2">
+  <h2>登録情報編集</h2>
+  <br>
+  <%= form_for @customer, url:public_customers_path do |f| %>
+  <!-- 名前 -->
+  <div class="row user_edit">
+    <div class="col-3">
+      <%= f.label :"名前" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :last_name %>
+    </div>
+  </div>
+  <!-- フリガナ -->
+  <div class="row user_edit">
+    <div class="col-3">
+      <%= f.label :"フリガナ" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :first_name_kana %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :last_name_kana %>
+    </div>
+  </div>
+  <!-- メールアドレス -->
+  <div class="row user_edit">
+    <div class="col-3">
+      <%= f.label :"メールアドレス" %>
+    </div>
+    <div class="col-3">
+      <%= f.email_field :email %>
+    </div>
+  </div>
+  <!-- 電話番号 -->
+  <div class="row user_edit">
+    <div class="col-3">
+      <%= f.label :"電話番号" %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :phone_number %>
+    </div>
+  </div>
+  <!-- 郵便番号 -->
+  <div class="row user_edit">
+    <div class="col-3">
+      <%= f.label :郵便番号 %>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+    </div>
+  </div>
+  <!-- 住所 -->
+  <div class="row user_edit">
+    <div class="col-3">
+      <%= f.label :住所 %>
+    </div>
+    <div class="col-5">
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", :size => "50"%>
+    </div>
+  </div>
+  <!-- リンクボタン -->
+  <div class="row user_edit">
+    <div class="col-3">
+      <%= f.submit "編集内容を保存" ,class:"btn btn-primary" %>
+    <% end %>
+    </div>
+    <div class="col-3">
+      <%=button_to "退会する", public_customers_withdrawal_path, method: :get, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

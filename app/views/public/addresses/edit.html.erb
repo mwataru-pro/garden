@@ -1,2 +1,33 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<div class="col-8 offset-2">
+  <h2>配送先編集</h2>
+  <div class="new-address">
+      <%= form_for @address, url:public_addresses_path, method: :patch do |f| %>
+      <div class="raw">
+        <!-- 郵便番号 -->
+        <div class="col-4">
+          <%= f.label :郵便番号 %>
+        </div>
+        <div class="col-4">
+          <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder:"ハイフンなし" %>
+        </div>
+        <!-- 住所 -->
+        <div class="col-4">
+          <%= f.label :住所 %>
+        </div>
+        <div class="col-4">
+          <%= f.text_field :shipping_address, autofocus: true, autocomplete: "shipping_address", size: "70" %>
+        </div>
+        <!-- 宛名 -->
+        <div class="col-4">
+          <%= f.label :宛名 %>
+        </div>
+        <div class="col-4">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div><br>
+        <div class="col-4">
+          <%= f.submit "編集する", class: "btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>
