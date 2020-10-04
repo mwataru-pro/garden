@@ -1,2 +1,13 @@
-<h1>Public::Customers#withdrawal</h1>
-<p>Find me in app/views/public/customers/withdrawal.html.erb</p>
+<div class="col-8 offset-2">
+  <div class="withdrawal-contents text-center">
+    <h3><strong>本当に退会しますか？</strong></h3>
+    <p>
+      退会すると、会員登録情報や<br>
+      これまでの購入履歴が閲覧できなくなります。<br>
+      退会する場合は、「退会する」をクリックしてください。
+    </p>
+    <br>
+    <%= link_to "退会しない", public_customers_path, class: "btn btn-primary" %>｜
+    <%= link_to "退会する", public_customers_withdrawal_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+  </div>
+</div>

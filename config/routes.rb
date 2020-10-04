@@ -37,8 +37,8 @@ Rails.application.routes.draw do
     get '/orders/confirm' => 'orders#confirm'
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks' => 'orders#thanks'
-    patch '/members/withdrawal' => 'members#destroy'
-    get '/members/withdrawal' => 'members#withdrawal'
+    patch '/customers/withdrawal' => 'customers#destroy'
+    get '/customers/withdrawal' => 'customers#withdrawal'
     resources :orders, only:[:new,:create,:index,:show]
     resource :customers, only:[:show ,:edit,:update]
     resources :addresses, only:[:index, :edit, :destroy, :create, :update]
